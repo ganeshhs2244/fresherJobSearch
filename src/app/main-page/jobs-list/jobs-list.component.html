@@ -44,11 +44,14 @@
         <div class="col-10">
           <h3>{{ item.drive_name }}</h3>
           <div class="subBody">
+            <span>Qualification :</span><span>{{item.Qualification}}</span>
+            <br>
             <span>Branch :</span><span> {{ item.branch }}</span>
             <br>
             <span>Percentage :</span><span>{{ item.percetage }}% and above</span> 
             <br>
             <span>Year Of Passing :</span> <span>{{ item.yearOfPassing }}</span>
+            
           </div>
           <app-more-info class=""></app-more-info>
           <a href="Apply" class="btn btn-warning mt-2">Apply now</a>
