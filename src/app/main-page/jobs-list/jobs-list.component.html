@@ -1,0 +1,59 @@
+<div class="container-fluid justify-content-center ">
+  <div class=" m-2">
+    <input
+      class="form-control"
+      type="text"
+      name="cname"
+      [(ngModel)]="cname"
+      (ngModelChange)="search()"
+      placeholder="Search for companies"
+    />
+  </div>
+  <div class="row">
+    <div class="col-xl-1 col-md-1">
+      <div class="ms-2">
+        <span class="dropdown ">
+          <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            Branch
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+            <li><a class="dropdown-item" (click)="selectBranch('all')">ALL</a></li>
+            <li><a class="dropdown-item" (click)="selectBranch('CSE')">CSE</a></li>
+            <li><a class="dropdown-item" (click)="selectBranch('ECE')">ECE</a></li>
+            <li><a class="dropdown-item" (click)="selectBranch('ISE')">ISE</a></li>
+            <li><a class="dropdown-item" (click)="selectBranch('EEE')">EEE</a></li>
+          </ul>
+        </span>
+      </div>
+    </div>
+    <div class="col-xl-11 col-md-12">
+      <marquee style="background-color: rgb(236, 247, 33);color: rgb(255, 3, 3);font-size: large;" direction="left" width="100%" height="100%" >
+        Registration for TCS and Infosys drive  CSE,ISE,ECE are open 
+      </marquee>
+    </div>
+  </div>
+  <div *ngFor="let item of apidata2" class="card mb-3 mainCompone justify-content-center">
+    <div class="card-header bg-primary text-white">
+      <a >{{ item.drive_name }}</a>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-xl-2 col-sm-12">
+          <img class="logo-image" [src]="item.image_url" />
+        </div>
+        <div class="col-10">
+          <h3>{{ item.drive_name }}</h3>
+          <div class="subBody">
+            <span>Branch :</span><span> {{ item.branch }}</span>
+            <br>
+            <span>Percentage :</span><span>{{ item.percetage }}% and above</span> 
+            <br>
+            <span>Year Of Passing :</span> <span>{{ item.yearOfPassing }}</span>
+          </div>
+          <app-more-info class=""></app-more-info>
+          <a href="Apply" class="btn btn-warning mt-2">Apply now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
